@@ -1,0 +1,28 @@
+@precedence { aggregate @left }
+
+@top Tablature {
+    Staves (newlineEmpty (newline|newlineEmpty)* Staves)* eof
+}
+
+Staves { 
+    StaffLineGroup !aggregate (newline StaffLineGroup)*
+}
+
+@skip {} {
+    StaffLineGroup { 
+        StaffLine !aggregate (space* StaffLine)* space* (incomingNewline|incomingEOF)
+    }
+}
+
+StaffLine { "hello" }
+
+
+@skip { space }
+
+@tokens {
+    space { $[ \t] }
+}
+
+@external tokens externSpaces from "./tokens" { extSpaces }
+@external tokens newlines from "./tokens" { newline, newlineEmpty, eof }
+@external tokens lookaheads from "./tokens" { incomingNewline, incomingEOF }
