@@ -1,3 +1,6 @@
-import {LRParser} from "@lezer/lr"
+import { LRLanguage, LanguageSupport } from '@codemirror/language';
 
-export const parser: LRParser
+declare const tablatureLanguage: LRLanguage;
+declare function tablature(): LanguageSupport;
+
+export { tablature, tablatureLanguage };

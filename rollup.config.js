@@ -1,30 +1,20 @@
-import { nodeResolve } from "@rollup/plugin-node-resolve";
-// import fs from "fs";
+import typescript from "rollup-plugin-ts";
+import dts from "rollup-plugin-dts";
+import {lezer} from "lezer-generator/rollup"
 
-export default {
-  input: "src/index.js",
-  output: [
-    {file: "dist/index.cjs", format: "cjs"},
-    {dir: "./dist", format: "es"},
-  ],
-  external: (id) => id != "tslib" && !/^(\.?\/|\w:)/.test(id),
-  lezer: [
-    nodeResolve()
-  ],
-};
-
-// function copyAndWatch(fileIn, fileOut) {
-//   return {
-//     name: "copy-and-watch",
-//     async buildStart() {
-//       this.addWatchFile(fileIn);
-//     },
-//     async generateBundle() {
-//       this.emitFile({
-//         type: "asset",
-//         fileName: fileOut,
-//         source: fs.readFileSync(fileIn),
-//       });
-//     },
-//   };
-// }
+export default [
+  {
+    input: "src/index.ts",
+    output: [
+      { file: "dist/index.cjs", format: "cjs" },
+      { dir: "./dist", format: "es" },
+    ],
+    external: (id) => id != "tslib" && !/^(\.?\/|\w:)/.test(id),
+    plugins: [lezer(), typescript()],
+  },
+  {
+    input: "./dist/dts/index.d.ts",
+    output: [{ file: "dist/index.d.ts" }],
+    plugins: [dts()],
+  },
+];

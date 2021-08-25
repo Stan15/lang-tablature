@@ -21,11 +21,11 @@ export const newlines = new ExternalTokenizer((input) => {
     // this if statement handles the CRLF line ending
     if (input.next == carriageReturn) {
       input.advance();
-      if (input.next != newline) return;
+      if (<number> input.next != newline) return;
     }
     input.advance();
     let spaces = 0;
-    while (input.next == space || input.next == tab) {
+    while (<number> input.next == space || <number> input.next == tab) {
       input.advance();
       spaces++;
     }
