@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Codemirror language support for music tablature",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "build": "lezer-generator src/tablature.grammar -o src/parser && rollup -c",
     "dev": "lezer-generator src/tablature.grammar --names -o src/parser && rollup -c",

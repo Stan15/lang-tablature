@@ -8,21 +8,59 @@ Staves {
     StaffLineGroup !aggregate (newline StaffLineGroup)*
 }
 
-@skip {} {
-    StaffLineGroup { 
-        StaffLine !aggregate (space* StaffLine)* space* (incomingNewline|incomingEOF)
-    }
+StaffLineGroup { 
+    StaffLine* (incomingNewline|incomingEOF)
 }
 
-StaffLine { "hello" }
+StaffLine { 
+    ( 
+        (MeasureLineName (delim|dash)) | 
+        delim
+    )
+    MeasureLine+ 
+    (Multiplier | stafflineSep)
+}
 
+MeasureLine {
+    !aggregate (measureComponent|dash)+ delim
+}
+
+// -----Measure components like fret, e.t.c.---------------
+measureComponent { stringComponent }
+stringComponent {
+    Hammer |
+    Pull |
+    Slide |
+    unitStringComponent
+}
+Hammer[@isGroup=MeasureComponentGroup] { unitStringComponent hammerSym stringComponent }
+Pull[@isGroup=MeasureComponentGroup] { unitStringComponent pullSym stringComponent }
+Slide[@isGroup=MeasureComponentGroup] { unitStringComponent slideSym stringComponent }
+unitStringComponent {
+    Fret[@isGroup=MeasureComponent] { fretNum } |
+    Harmonic[@isGroup=MeasureComponent] { "[" fretNum "]" } |
+    Grace[@isGroup=MeasureComponent] { graceSym !aggregate fretNum }
+}
+// ---------------------------------------------------------
 
 @skip { space }
-
 @tokens {
     space { $[ \t] }
+    dash { "-" }
+    delimChar { $[|:] }
+    delim { delimChar delimChar? }
+    
+    fretNum { $[0-9] $[0-9]? }
+    graceSym { $[gG] }
+
+    slideSym { $[s/\\] }
+    hammerSym { $[hH] }
+    pullSym { $[pP] }
+
+    Multiplier { $[xX] $[0-9] }
+    MeasureLineName { "hi" | $[eE] | $[bB] | $[gG] | $[dD] | $[aA] }
 }
 
-@external tokens externSpaces from "./tokens" { extSpaces }
 @external tokens newlines from "./tokens" { newline, newlineEmpty, eof }
 @external tokens lookaheads from "./tokens" { incomingNewline, incomingEOF }
+@external tokens stafflineSeparator from "./tokens" { stafflineSep }
