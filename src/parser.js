@@ -4,18 +4,18 @@ import {newlines, lookaheads, stafflineSeparator} from "./tokens"
 import {NodeProp} from "@lezer/common"
 export const parser = LRParser.deserialize({
   version: 13,
-  states: "'bOVQXOOOeQPO'#C`OmQQO'#C`OOQW'#Cj'#CjO{QXO'#C_OOQS'#C_'#C_O!ZQTO'#C^O!fQTOOOmQQO,58zOOQO'#Cd'#CdO!nQPO'#CeO!sQPO'#CfOOQO'#C|'#C|O!xQQO'#C{OOQO'#C{'#C{OOQO'#Cl'#ClO#dQQO'#CbOOQ`'#Ck'#CkO#uQbO,58zOOQW-E6h-E6hOOQS,58y,58yOVQXO'#CmO$ZQTO,58xO$fQ]O'#CnO!fQTOOQOQPOOO$zQbO1G.fO%`QPO,59POOQO,59Q,59QOpQQO,58}OpQQO,59ROpQQO,59SOOQO-E6j-E6jOOQ`,58|,58|OOQ`-E6i-E6iOOQW1G.f1G.fOOQS,59X,59XOOQS-E6k-E6kOOQ['#Co'#CoO$fQ]O,59YOOQS,59Y,59YOOQS-E6l-E6lOOQW7+$Q7+$QOOQO1G.k1G.kOOQO1G.i1G.iOOQO1G.m1G.mOOQO1G.n1G.nOOQ[-E6m-E6mOOQS1G.t1G.t",
-  stateData: "%e~OlOS~OTPOhTOiTOmQO~OmWOnWO~On_OqXOrYOtZO~OTPOhdOidOmQO~OeeOfQXgQX~OfgOgiO~OqkO~OqlO~OumOvnOwoOmoXnoXqoXroXtoX~OmqOn_OqXOrYOtZO~O]sOjsOn_OqXOrYOtZO~OeeOfQagQa~OTPOevOfvOhTOiTOmQO~O]zOjzOn_OqXOrYOtZO~Os{O~O",
-  goto: "$bqPPr{!TP![!b!l!l!l!b!bP!v#P#Z#d#j#pPPPPPPPPPPP#v$WQVOQxgR!QwUUOgwRteZROSegwXaQWbja^QW`bjmnoa[QW`bjmnoWSOegwRcSQbQQjWTrbjW`QWbjRp`QfURufQhVRyhQwgR!PwY_QW`bjQ|mQ}nR!Ooa]QW`bjmno",
-  nodeNames: "⚠ Tablature Staves StaffLineGroup StaffLine MeasureLineName MeasureLine Hammer Fret Harmonic Grace Pull Slide Multiplier",
-  maxTerm: 39,
+  states: "'bOYQXOOOhQPO'#CaOpQQO'#CaOOQW'#Ck'#CkO!OQXO'#C`OOQS'#C`'#C`O!^QTO'#C_O!iQTOOOpQQO,58{OOQO'#Ce'#CeO!qQPO'#CfO!qQPO'#CgOOQO'#C}'#C}O!vQQO'#C|OOQO'#C|'#C|OOQO'#Cm'#CmO#bQQO'#CcOOQ`'#Cl'#ClO#sQbO,58{OOQW-E6i-E6iOOQS,58z,58zOYQXO'#CnO$XQTO,58yO$dQ]O'#CoO!iQTOOQOQPOOO$xQbO1G.gO%^QPO,59QOOQO,59R,59ROsQQO,59OOsQQO,59SOsQQO,59TOOQO-E6k-E6kOOQ`,58},58}OOQ`-E6j-E6jOOQW1G.g1G.gOOQS,59Y,59YOOQS-E6l-E6lOOQ['#Cp'#CpO$dQ]O,59ZOOQS,59Z,59ZOOQS-E6m-E6mOOQW7+$R7+$ROOQO1G.l1G.lOOQO1G.j1G.jOOQO1G.n1G.nOOQO1G.o1G.oOOQ[-E6n-E6nOOQS1G.u1G.u",
+  stateData: "%c~OmOSPOS~OUPOiTOjTOnQO~OnWOoWO~Oo_OrXOsYOuZO~OUPOidOjdOnQO~OfeOgRXhRX~OggOhiO~OrXO~OvmOwnOxoOnpXopXrpXspXupX~OnqOo_OrXOsYOuZO~O^sOksOo_OrXOsYOuZO~OfeOgRahRa~OUPOfvOgvOiTOjTOnQO~O^zOkzOo_OrXOsYOuZO~Ot{O~O",
+  goto: "$srPPPs|!UP!]!c!m!}!}!c!cP#X#b#l#u#{$RPPPPPPPPPPP$X$iQVOQxgR!QwUUOgwRteZROSegwXaQWbja^QW`bjmno`[QW`bjmnoQkYRlZa[QW`bjmnoWSOegwRcSQbQQjWTrbjW`QWbjRp`QfURufQhVRyhQwgR!PwY_QW`bjQ|mQ}nR!Ooa]QW`bjmno",
+  nodeNames: "⚠ Comment Tablature Staves StaffLineGroup StaffLine MeasureLineName MeasureLine Hammer Fret Harmonic Grace Pull Slide Multiplier",
+  maxTerm: 40,
   nodeProps: [
-    [NodeProp.group, -3,7,11,12,"MeasureComponentGroup",-3,8,9,10,"MeasureComponent"]
+    [NodeProp.group, -3,8,12,13,"MeasureComponentGroup",-3,9,10,11,"MeasureComponent"]
   ],
-  skippedNodes: [0],
+  skippedNodes: [0,1],
   repeatNodeCount: 6,
-  tokenData: "$y~RkXY!vpq!v}!O!{!P!Q#Q!Q![#V![!]#d!c!d#t!d!e#t!f!g#t!g!h#t!i!j#y!j!k$Q!r!s$V!z!{$[!}#O$g#O#P#Q#P#Q$l#T#U#t#U#V#t#W#X#t#X#Y#t#Z#[#y#[#]$q#d#e$V#g#h#Q#l#m$[#p#q#d~!{Ol~~#QOn~~#VOw~~#[Pq~!Q![#_~#dOq~~#iQm~![!]#o#p#q#o~#tOm~P#yOTPR$QOTPtQQ$VOuQ~$[Ov~~$_P!Q![$b~$gO]~~$lOr~~$qOs~R$vPuQ#]#^#t",
+  tokenData: "%[~RlXY!ypq!yst#O}!O#^!P!Q#c!Q![#h![!]#u!c!d$V!d!e$V!f!g$V!g!h$V!i!j$[!j!k$c!r!s$h!z!{$m!}#O$x#O#P#c#P#Q$}#T#U$V#U#V$V#W#X$V#X#Y$V#Z#[$[#[#]%S#d#e$h#g#h#c#l#m$m#p#q#u~#OOm~~#TRP~OY#OZ]#O^~#O~#cOo~~#hOx~~#mPr~!Q![#p~#uOr~~#zQn~![!]$Q#p#q$Q~$VOn~P$[OUPR$cOUPuQQ$hOvQ~$mOw~~$pP!Q![$s~$xO^~~$}Os~~%SOt~R%XPvQ#]#^$V",
   tokenizers: [0, 1, newlines, lookaheads, stafflineSeparator],
-  topRules: {"Tablature":[0,1]},
+  topRules: {"Tablature":[0,2]},
   tokenPrec: 0
 })

@@ -8,7 +8,9 @@ import { LRLanguage, LanguageSupport } from "@codemirror/language";
 let parserWithMetadata = parser.configure({
   props: [
     styleTags({
-      //TODO
+      Fret: t.integer,
+      MeasureLineName: t.name,
+      Comment: t.comment
     }),
   ],
 });
@@ -16,7 +18,7 @@ let parserWithMetadata = parser.configure({
 export const tablatureLanguage = LRLanguage.define({
   parser: parserWithMetadata,
   languageData: {
-    commentTokens: { line: "//" },
+    commentTokens: { line: "#" },
   },
 });
 

@@ -37,18 +37,22 @@ Hammer[@isGroup=MeasureComponentGroup] { unitStringComponent hammerSym stringCom
 Pull[@isGroup=MeasureComponentGroup] { unitStringComponent pullSym stringComponent }
 Slide[@isGroup=MeasureComponentGroup] { unitStringComponent slideSym stringComponent }
 unitStringComponent {
-    Fret[@isGroup=MeasureComponent] { fretNum } |
-    Harmonic[@isGroup=MeasureComponent] { "[" fretNum "]" } |
-    Grace[@isGroup=MeasureComponent] { graceSym !aggregate fretNum }
+    Fret | Harmonic | Grace
 }
+
+Fret[@isGroup=MeasureComponent] { fretNum }
+Harmonic[@isGroup=MeasureComponent] { "[" Fret "]" }
+Grace[@isGroup=MeasureComponent] { graceSym !aggregate Fret }
 // ---------------------------------------------------------
 
-@skip { space }
+@skip { space | Comment }
 @tokens {
     space { $[ \t] }
     dash { "-" }
     delimChar { $[|:] }
     delim { delimChar delimChar? }
+
+    Comment { "#" ![\n\r]* }
     
     fretNum { $[0-9] $[0-9]? }
     graceSym { $[gG] }

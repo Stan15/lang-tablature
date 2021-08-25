@@ -13,7 +13,7 @@ Tablature(
     Staves(
         StaffLineGroup(
             StaffLine(
-                MeasureLineName, MeasureLine(Hammer(Fret, Pull(Fret, Harmonic))), MeasureLine(Harmonic), Multiplier
+                MeasureLineName, MeasureLine(Hammer(Fret, Pull(Fret, Harmonic(Fret)))), MeasureLine(Harmonic(Fret)), Multiplier
             ),
             StaffLine(
                 MeasureLineName, MeasureLine(Fret), MeasureLine(Fret), MeasureLine(Fret)
