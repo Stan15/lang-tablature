@@ -7,14 +7,11 @@ import {
   incomingEOF,
   stafflineSep,
 } from "./parser.terms.js";
-import fs from 'fs'
 
 const newline = 10,
   carriageReturn = 13,
   space = 32,
-  tab = 9,
-  c = 99,
-  pipe=124;
+  tab = 9;
 
 export const newlines = new ExternalTokenizer((input) => {
   if (input.next < 0) {
