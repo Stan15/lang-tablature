@@ -83,13 +83,13 @@ const tabTags$1 = {
 let parserWithMetadata = parser.configure({
     props: [
         styleTags({
-            Fret: tabTags$1.fret,
-            MeasureLineName: tabTags$1.measurelineName,
+            "MeasureLine/Fret": tabTags$1.fret,
+            "StaffLine/MeasureLineName": tabTags$1.measurelineName,
             Comment: tabTags$1.comment,
-            "Hammer Pull Slide": tabTags$1.technique,
-            "Grace Harmonic": tabTags$1.embellishment,
-            Multiplier: tabTags$1.multiplier,
-            delim: tabTags$1.delimiter
+            "MeasureLine/Hammer MeasureLine/Pull MeasureLine/Slide": tabTags$1.technique,
+            "MeasureLine/Grace MeasureLine/Harmonic": tabTags$1.embellishment,
+            "StaffLine/Multiplier": tabTags$1.multiplier,
+            delim: tabTags$1.delimiter,
         }),
     ],
 });
