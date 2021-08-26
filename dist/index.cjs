@@ -70,14 +70,30 @@ const parser = lr.LRParser.deserialize({
     tokenPrec: 0
 });
 
+const tabTags$1 = {
+    fret: highlight.Tag.define(highlight.tags.integer),
+    measurelineName: highlight.Tag.define(highlight.tags.propertyName),
+    technique: highlight.Tag.define(highlight.tags.arithmeticOperator),
+    embellishment: highlight.Tag.define(highlight.tags.bitwiseOperator),
+    delimiter: highlight.Tag.define(highlight.tags.separator),
+    multiplier: highlight.Tag.define(highlight.tags.updateOperator),
+    attribution: highlight.Tag.define(highlight.tags.documentMeta),
+    modifier: highlight.Tag.define(highlight.tags.annotation),
+    comment: highlight.tags.comment,
+};
+
 //to know how to set up the style tags and code completion, see
 //https://codemirror.net/6/examples/lang-package/
 let parserWithMetadata = parser.configure({
     props: [
         highlight.styleTags({
-            Fret: highlight.tags.integer,
-            MeasureLineName: highlight.tags.name,
-            Comment: highlight.tags.comment
+            Fret: tabTags$1.fret,
+            MeasureLineName: tabTags$1.measurelineName,
+            Comment: tabTags$1.comment,
+            "Hammer Pull Slide": tabTags$1.technique,
+            "Grace Harmonic": tabTags$1.embellishment,
+            Multiplier: tabTags$1.multiplier,
+            delim: tabTags$1.delimiter
         }),
     ],
 });
@@ -90,6 +106,8 @@ const tablatureLanguage = language.LRLanguage.define({
 function tablature() {
     return new language.LanguageSupport(tablatureLanguage);
 }
+const tabTags = tabTags$1;
 
+exports.tabTags = tabTags;
 exports.tablature = tablature;
 exports.tablatureLanguage = tablatureLanguage;
