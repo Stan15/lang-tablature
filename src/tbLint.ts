@@ -3,5 +3,5 @@ import {Text} from "@codemirror/state"
 import {EditorView} from "@codemirror/view"
 import {tablatureLanguage} from "./tablature"
 
-export function esLint(eslint: any, config?: any) {
+export function tbLint(eslint: any, config?: any) {
 }

@@ -1,3 +1,3 @@
 export { tablature } from "./tablature";
 export { snippets } from "./snippets";
-export { tbLint } from "./tabLint";
+export { tbLint } from "./tbLint";

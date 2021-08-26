@@ -4,7 +4,8 @@
   "description": "Music tablature language support for the CodeMirror code editor",
   "scripts": {
     "test": "cm-runtests",
-    "prepare": "cm-buildhelper src/index.ts"
+    "prepare": "cm-buildhelper src/index.ts",
+    "build": "npm run prepare"
   },
   "keywords": [
     "music",
