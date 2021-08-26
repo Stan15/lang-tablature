@@ -9,13 +9,13 @@ import { LRLanguage, LanguageSupport } from "@codemirror/language";
 let parserWithMetadata = parser.configure({
   props: [
     styleTags({
-      Fret: tags.fret,
-      MeasureLineName: tags.measurelineName,
+      "MeasureLine/Fret": tags.fret,
+      "StaffLine/MeasureLineName": tags.measurelineName,
       Comment: tags.comment,
-      "Hammer Pull Slide": tags.technique,
-      "Grace Harmonic": tags.embellishment,
-      Multiplier: tags.multiplier,
-      delim: tags.delimiter
+      "MeasureLine/Hammer Pull Slide": tags.technique,
+      "MeasureLine/Grace Harmonic": tags.embellishment,
+      "StaffLine/Multiplier": tags.multiplier,
+      delim: tags.delimiter,
     }),
   ],
 });
