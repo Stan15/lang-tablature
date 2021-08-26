@@ -1,5 +1,6 @@
 import { parser } from "./parser.js";
-import { styleTags, tags as t } from "@codemirror/highlight";
+import { styleTags } from "@codemirror/highlight";
+import tags from "./custom-style-tags";
 import { LRLanguage, LanguageSupport } from "@codemirror/language";
 
 //to know how to set up the style tags and code completion, see
@@ -8,9 +9,13 @@ import { LRLanguage, LanguageSupport } from "@codemirror/language";
 let parserWithMetadata = parser.configure({
   props: [
     styleTags({
-      Fret: t.integer,
-      MeasureLineName: t.name,
-      Comment: t.comment
+      Fret: tags.fret,
+      MeasureLineName: tags.measurelineName,
+      Comment: tags.comment,
+      "Hammer Pull Slide": tags.technique,
+      "Grace Harmonic": tags.embellishment,
+      Multiplier: tags.multiplier,
+      delim: tags.delimiter
     }),
   ],
 });
@@ -25,3 +30,5 @@ export const tablatureLanguage = LRLanguage.define({
 export function tablature() {
   return new LanguageSupport(tablatureLanguage);
 }
+
+export const tabTags = tags;

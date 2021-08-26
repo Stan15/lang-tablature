@@ -50,18 +50,19 @@ Grace[@isGroup=MeasureComponent] { graceSym !aggregate Fret }
     space { $[ \t] }
     dash { "-" }
     delimChar { $[|:] }
+    num { $[0-9] }
     delim { delimChar delimChar? }
 
     Comment { "#" ![\n\r]* }
     
-    fretNum { $[0-9] $[0-9]? }
+    fretNum { num num? }
     graceSym { $[gG] }
 
     slideSym { $[s/\\] }
     hammerSym { $[hH] }
     pullSym { $[pP] }
 
-    Multiplier { $[xX] $[0-9] }
+    Multiplier { $[xX] num }
     MeasureLineName { "hi" | $[eE] | $[bB] | $[gG] | $[dD] | $[aA] }
 }
 
