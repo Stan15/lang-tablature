@@ -27,6 +27,7 @@ export const tablatureLanguage = LRLanguage.define({
         delim: tags.delimiter,
       }),
     ],
+    strict: true,
   }),
 });
 
