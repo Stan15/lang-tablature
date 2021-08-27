@@ -18,12 +18,12 @@ export const tablatureLanguage = LRLanguage.define({
   parser: parser.configure({
     props: [
       styleTags({
-        "MeasureLine/Fret": tags.fret,
+        "Fret": tags.fret,
         "StaffLine/MeasureLineName": tags.measurelineName,
         Comment: tags.comment,
-        "MeasureLine/Hammer MeasureLine/Pull MeasureLine/Slide": tags.technique,
-        "MeasureLine/Grace MeasureLine/Harmonic": tags.embellishment,
-        "StaffLine/Multiplier": tags.multiplier,
+        "Hammer Pull Slide": tags.technique,
+        "Grace Harmonic": tags.embellishment,
+        "Multiplier": tags.multiplier,
         delim: tags.delimiter,
       }),
     ],
