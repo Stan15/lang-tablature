@@ -18,7 +18,7 @@ export const tablatureLanguage = LRLanguage.define({
   parser: parser.configure({
     props: [
       styleTags({
-        "Dash": tags.fret
+        "Fret": tags.fret
       }),
     ]
   }),
