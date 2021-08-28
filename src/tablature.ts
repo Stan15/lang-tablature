@@ -18,16 +18,9 @@ export const tablatureLanguage = LRLanguage.define({
   parser: parser.configure({
     props: [
       styleTags({
-        "Fret": tags.fret,
-        "StaffLine/MeasureLineName": tags.measurelineName,
-        Comment: tags.comment,
-        "Hammer Pull Slide": tags.technique,
-        "Grace Harmonic": tags.embellishment,
-        "Multiplier": tags.multiplier,
-        delim: tags.delimiter,
+        "Dash": tags.fret
       }),
-    ],
-    strict: true,
+    ]
   }),
 });
 
