@@ -3,6 +3,8 @@ import { Text } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import { tablatureLanguage } from "./tablature";
 
+type LintSource = (view: EditorView) => readonly Diagnostic[] | Promise<readonly Diagnostic[]>
+
 export function tbLint(tblint: any, config?: any) {
   if (!config) {
     config = {
@@ -14,11 +16,10 @@ export function tbLint(tblint: any, config?: any) {
     });
   }
 
-  return (view: EditorView) => {
+  return ((view: EditorView) => {
     let { state } = view,
       found: Diagnostic[] = [];
     console.log(`completing...\nstate: ${state}`);
-    return found;
     for (let { from, to } of tablatureLanguage.findRegions(state)) {
       let fromLine = state.doc.lineAt(from),
         offset = {
@@ -30,7 +31,7 @@ export function tbLint(tblint: any, config?: any) {
         found.push(translateDiagnostic(d, state.doc, offset));
     }
     return found;
-  };
+  }) as LintSource;
 }
 
 function mapPos(
