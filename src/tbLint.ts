@@ -3,8 +3,6 @@ import { Text } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import { tablatureLanguage } from "./tablature";
 
-type LintSource = (view: EditorView) => readonly Diagnostic[] | Promise<readonly Diagnostic[]>
-
 export function tbLint(tblint: any, config?: any) {
   if (!config) {
     config = {
@@ -16,7 +14,7 @@ export function tbLint(tblint: any, config?: any) {
     });
   }
 
-  return ((view: EditorView) => {
+  return (view: EditorView) => {
     let { state } = view,
       found: Diagnostic[] = [];
     console.log(`completing...\nstate: ${state}`);
@@ -31,7 +29,7 @@ export function tbLint(tblint: any, config?: any) {
         found.push(translateDiagnostic(d, state.doc, offset));
     }
     return found;
-  }) as LintSource;
+  };
 }
 
 function mapPos(
