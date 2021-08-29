@@ -15,7 +15,7 @@ export function tbLint(tblint: TabLinter, config?: any) {
     });
   }
 
-  return (view: EditorView) => {
+  return ((view: EditorView) => {
     return tblint.verify(view.state, config)
     //   found: Diagnostic[] = [];
     // for (let d of tblint.verify(state, config))
@@ -32,7 +32,7 @@ export function tbLint(tblint: TabLinter, config?: any) {
     //     found.push(translateDiagnostic(d, state.doc, offset));
     // }
     // return found;
-  };
+  }) as (view: EditorView) => any[];
 }
 
 // function mapPos(
