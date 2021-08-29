@@ -13,6 +13,7 @@ import { styleTags } from "@codemirror/highlight";
 import { tabTags as tags } from "./style-tags";
 import { completeFromList, ifNotIn } from "@codemirror/autocomplete";
 import { snippets } from "./snippets";
+import { tbLint } from "./tbLint";
 
 export const tablatureLanguage = LRLanguage.define({
   parser: parser.configure({
@@ -30,6 +31,8 @@ export const tablatureLanguage = LRLanguage.define({
   }),
 });
 
+export const tabLinter = tablatureLanguage.data.of({linter: tbLint})
+
 export function tablature() {
-  return new LanguageSupport(tablatureLanguage);
+  return new LanguageSupport(tablatureLanguage, tabLinter);
 }
