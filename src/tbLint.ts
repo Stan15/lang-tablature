@@ -10,9 +10,9 @@ export function tbLint(tblint: TabLinter, config?: any) {
       parserOptions: { auto: true, guitar: false, drum: false, bass: false },
       rules: {},
     };
-    tblint.getRules().forEach((desc: any, name: string) => {
-      if (desc.recommended) config.rules[name] = 2;
-    });
+    // tblint.getRules().forEach((desc: any, name: string) => {
+    //   if (desc.recommended) config.rules[name] = 2;
+    // });
   }
 
   return ((view: EditorView) => {
