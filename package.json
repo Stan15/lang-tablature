@@ -11,12 +11,11 @@
     "music",
     "tablature",
     "tab",
-    "tabs",
     "guitar",
     "drums",
     "bass",
-    "editor",
-    "code"
+    "language",
+    "codemirror"
   ],
   "author": {
     "name": "Stanley Ihesiulo",
@@ -47,6 +46,7 @@
     "@codemirror/lint": "^0.19.0",
     "@codemirror/state": "^0.19.1",
     "@codemirror/view": "^0.19.3",
+    "lint-tablature": "github:stan15/lint-tablature",
     "parser-tablature": "github:stan15/parser-tablature"
   },
   "devDependencies": {
