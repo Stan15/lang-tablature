@@ -1,7 +1,7 @@
 import { Tag, tags as t } from "@codemirror/highlight"
 
 export const tabTags = {
-  fret: Tag.define(t.bitwiseOperator),
+  fret: Tag.define(t.integer),
   measurelineName: Tag.define(t.propertyName),
   technique: Tag.define(t.arithmeticOperator),
   embellishment: Tag.define(t.bitwiseOperator),
