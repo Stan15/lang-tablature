@@ -1,7 +1,7 @@
 import { Diagnostic } from "@codemirror/lint";
 import { Text } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
-import TABLint from "tablint"
+import TABLinter from "tablint";
 
 export function tbLint(config?: any) {
   if (!config) {
@@ -14,20 +14,17 @@ export function tbLint(config?: any) {
     // });
   }
 
-  return ((view: EditorView) => {
+  return (async (view: EditorView) => {
     // return tblint.verify(view.state, config)
-    let {state} = view, found: Diagnostic[] = [];
-    let lintResults = TABLint.lint(state.sliceDoc(0), config)
-    for (let d of lintResults)
-        found.push(translateDiagnostic(d, state.doc))
+    let { state } = view,
+      found: Diagnostic[] = [];
+    let lintResults = await new TABLinter().lint(state.sliceDoc(0), config);
+    for (let d of lintResults) found.push(translateDiagnostic(d, state.doc));
     return found;
-  }) as (view: EditorView) => any[];
+  }) as (view: EditorView) => Promise<Diagnostic[]>;
 }
 
-function translateDiagnostic(
-  input: any,
-  doc: Text
-): Diagnostic {
+function translateDiagnostic(input: any, doc: Text): Diagnostic {
   let start = input.idx;
   let result: Diagnostic = {
     from: start,

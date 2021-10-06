@@ -46,11 +46,11 @@
     "@codemirror/lint": "^0.19.0",
     "@codemirror/state": "^0.19.1",
     "@codemirror/view": "^0.19.3",
-    "parser-tablature": "github:stan15/parser-tablature",
-    "tablint": "github:stan15/tablint"
+    "parser-tablature": "github:stan15/parser-tablature"
   },
   "devDependencies": {
     "@codemirror/buildhelper": "^0.1.11",
-    "@lezer/lr": "^0.15.1"
+    "@lezer/lr": "^0.15.1",
+    "tablint": "github:stan15/tablint"
   }
 }
