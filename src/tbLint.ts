@@ -6,8 +6,8 @@ import TABLinter from "tablint";
 export function tbLint(config?: any) {
   if (!config) {
     config = {
-      parserOptions: { auto: true, guitar: false, drum: false, bass: false },
-      rules: {},
+      instrument: { auto: true, guitar: false, drum: false, bass: false },
+      rules: TABLinter.getBuiltinRulesMeta(),
     };
     // tblint.getRules().forEach((desc: any, name: string) => {
     //   if (desc.recommended) config.rules[name] = 2;
