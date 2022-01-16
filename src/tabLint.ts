@@ -3,7 +3,7 @@ import { Text } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
 import TABLinter from "tablint";
 
-export function tbLint(config?: any) {
+export function tabLint(config?: any) {
   if (!config) {
     config = {
       instrument: { auto: true, guitar: false, drum: false, bass: false },
