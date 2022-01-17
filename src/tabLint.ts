@@ -17,8 +17,7 @@ export function tabLint(config?: any) {
 
   return (async (view: EditorView) => {
     // return tblint.verify(view.state, config)
-    let { state } = view
-    let found: Diagnostic[] = [];
+    let { state } = view, found: Diagnostic[] = [];
     
     let stxTree = syntaxTree(state);
     let lintResults = await new TABLint().verify(state.sliceDoc(0), config, stxTree);
@@ -37,9 +36,7 @@ function translateDiagnostic(input: any, doc: Text): Diagnostic {
     severity: input.severity == 1 ? "warning" : "error",
   };
   if (input.fix) {
-    let { range, text } = input.fix,
-      from = range[0],
-      to = range[1];
+    let { range, text } = input.fix, from = range[0]-start, to = range[1]-start;
     result.actions = [
       {
         name: "fix",
