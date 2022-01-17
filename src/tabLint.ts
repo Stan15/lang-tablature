@@ -43,7 +43,7 @@ function translateDiagnostic(input: any, doc: Text): Diagnostic {
         name: "fix",
         apply(view: EditorView, start: number) {
           view.dispatch({
-            changes: { from: start + from, to: start + to, insert: text },
+            changes: { from: start + from, to: start + to, insert: input.fix.text },
             scrollIntoView: true,
           });
         },
