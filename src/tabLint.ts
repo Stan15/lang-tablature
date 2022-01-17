@@ -36,14 +36,15 @@ function translateDiagnostic(input: any, doc: Text): Diagnostic {
     severity: input.severity == 1 ? "warning" : "error",
   };
   if (input.fix) {
-    let from = input.fix.range[0]-start;
-    let to = input.fix.range[1]-start;
+    let { range, text } = input.fix;
+    let from = range[0]-start;
+    let to = range[1]-start;
     result.actions = [
       {
         name: "fix",
         apply(view: EditorView, start: number) {
           view.dispatch({
-            changes: { from: start + from, to: start + to, insert: input.fix.text },
+            changes: { from: start + from, to: start + to, insert: text },
             scrollIntoView: true,
           });
         },
