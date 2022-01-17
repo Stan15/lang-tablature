@@ -39,6 +39,7 @@ function translateDiagnostic(input: any, doc: Text): Diagnostic {
     let { range, text } = input.fix;
     let from = range[0]-start;
     let to = range[1]-start;
+    console.log("diagnosing");
     result.actions = [
       {
         name: "fix",
@@ -47,6 +48,7 @@ function translateDiagnostic(input: any, doc: Text): Diagnostic {
             changes: { from: start + from, to: start + to, insert: text },
             scrollIntoView: true,
           });
+          console.log("applying fix");
         },
       },
     ];
