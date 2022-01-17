@@ -37,8 +37,8 @@ function translateDiagnostic(input: any, doc: Text): Diagnostic {
   };
   if (input.fix) {
     let { range, text } = input.fix;
-    let from = range[0]-start;
-    let to = range[1]-start;
+    let from = input.fix.range[0]-start;
+    let to = input.fix.range[1]-start;
     result.actions = [
       {
         name: "fix",
