@@ -1,13 +1,14 @@
 import { Diagnostic } from "@codemirror/lint";
 import { Text } from "@codemirror/state";
 import { EditorView } from "@codemirror/view";
-import TABLinter from "tablint";
+import { syntaxTree } from "@codemirror/language";
+import TABLint from "tablint";
 
 export function tabLint(config?: any) {
   if (!config) {
     config = {
       instrument: { auto: true, guitar: false, drum: false, bass: false },
-      rules: TABLinter.getBuiltinRulesMeta(),
+      rules: {}
     };
     // tblint.getRules().forEach((desc: any, name: string) => {
     //   if (desc.recommended) config.rules[name] = 2;
@@ -16,9 +17,11 @@ export function tabLint(config?: any) {
 
   return (async (view: EditorView) => {
     // return tblint.verify(view.state, config)
-    let { state } = view,
-      found: Diagnostic[] = [];
-    let lintResults = await new TABLinter().lint(state.sliceDoc(0), config);
+    let { state } = view
+    let found: Diagnostic[] = [];
+    
+    let stxTree = syntaxTree(state);
+    let lintResults = await new TABLint().verify(state.sliceDoc(0), config, stxTree);
     for (let d of lintResults) found.push(translateDiagnostic(d, state.doc));
     return found;
   }) as (view: EditorView) => Promise<Diagnostic[]>;
