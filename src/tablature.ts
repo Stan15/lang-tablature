@@ -20,10 +20,14 @@ export const rawTabLanguage = LRLanguage.define({
   }),
 });
 
-export const tablatureLanguage = TabLanguage.define({
+export const tablatureASTLanguage = TabLanguage.define({
   parser: new TabParserImplement()
 });
 
-export function tablature() {
-  return new TabLanguageSupport(tablatureLanguage, rawTabLanguage);
+export function tablatureAST() {
+  return new TabLanguageSupport(tablatureASTLanguage, rawTabLanguage);
+}
+
+export function rawTablature() {
+  return new LanguageSupport(rawTabLanguage);
 }
