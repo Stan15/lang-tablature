@@ -47,7 +47,7 @@
     "@codemirror/state": "^0.19.1",
     "@codemirror/view": "^0.19.3",
     "parser-tablature": "github:tab-edit/parser-tablature",
-    "tab-ast": "file:../tab-ast",
+    "tab-ast": "github:tab-edit/tab-ast",
     "tablint": "github:tab-edit/tablint"
   },
   "devDependencies": {
