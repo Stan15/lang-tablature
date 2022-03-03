@@ -48,7 +48,6 @@ function translateDiagnostic(input: any, doc: Text): Diagnostic {
             changes: { from: start + from, to: start + to, insert: text },
             scrollIntoView: true,
           });
-          console.log("applying fix");
         },
       },
     ];

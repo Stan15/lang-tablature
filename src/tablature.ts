@@ -1,11 +1,10 @@
 import { parser } from "parser-tablature";
 import { styleTags } from "@codemirror/highlight";
-import {
-  LanguageSupport, LRLanguage
-} from "@codemirror/language";
+import { LanguageSupport, LRLanguage } from "@codemirror/language";
+import { TabLanguage, TabLanguageSupport, TabParserImplement } from "tab-ast";
 import { tabTags as tags } from "./style-tags";
 
-export const tablatureLanguage = LRLanguage.define({
+export const rawTabLanguage = LRLanguage.define({
   parser: parser.configure({
     props: [
       styleTags({
@@ -21,6 +20,10 @@ export const tablatureLanguage = LRLanguage.define({
   }),
 });
 
+export const tablatureLanguage = TabLanguage.define({
+  parser: new TabParserImplement()
+});
+
 export function tablature() {
-  return new LanguageSupport(tablatureLanguage);
+  return new TabLanguageSupport(tablatureLanguage, rawTabLanguage);
 }
