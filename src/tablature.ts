@@ -25,7 +25,7 @@ export const tablatureASTLanguage = TabLanguage.define({
 });
 
 export function tablatureAST() {
-  return new TabLanguageSupport(tablatureASTLanguage, rawTabLanguage);
+  return new TabLanguageSupport(tablatureASTLanguage, rawTablature());
 }
 
 export function rawTablature() {
