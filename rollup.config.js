@@ -4,21 +4,15 @@ import dts from 'rollup-plugin-dts'
 export default [
     {
         input: 'src/index.ts',
-        output: [
-            {
-                sourcemap: true,
-                file: 'dist/index.js',
-                format: 'es'
-            },
-            {
-                file: 'dist/index.cjs',
-                format: 'cjs'
-            }
-        ],
-        plugins: [typescript()]
+        output: {
+            sourcemap: true,
+            file: 'dist/index.js',
+            format: 'es'
+        },
+        plugins: [typescript({ tsconfig: './tsconfig.json' })]
     },
     {
-        input: 'dts/index.d.ts',
+        input: 'dist/dts/index.d.ts',
         output: [
             { file: 'dist/index.d.ts', format: 'es' }
         ],

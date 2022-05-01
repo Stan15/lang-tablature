@@ -1,14 +1,15 @@
 {
-  "compileroptions": {
-    "module": "esnext",
-    "esmoduleinterop": true,
-    "target": "es2016",
-    "moduleresolution": "node",
-    "sourcemap": true,
-    "declaration": true,
-    "emitdeclarationonly": true,
-    "declarationdir": "dts"
-  },
-  "include": ["src"],
-  "exclude": ["node_modules"],
+    "compilerOptions": {
+        "module": "esnext",
+        "esModuleInterop": true,
+        "target": "es6",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "declarationDir": "dts"
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"],
+    "lib": ["es2015"]
 }
