@@ -1,0 +1,14 @@
+{
+  "compileroptions": {
+    "module": "esnext",
+    "esmoduleinterop": true,
+    "target": "es2016",
+    "moduleresolution": "node",
+    "sourcemap": true,
+    "declaration": true,
+    "emitdeclarationonly": true,
+    "declarationdir": "dts"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+}

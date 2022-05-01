@@ -4,7 +4,7 @@
 // import { syntaxTree } from "@codemirror/language";
 // import TABLint from "tablint";
 
-// export function tabLint(config?: any) {
+// export function tabLinter(config?: any) {
 //   if (!config) {
 //     config = {
 //       instrument: { auto: true, guitar: false, drum: false, bass: false },

@@ -1,4 +1,4 @@
-import { Tag, tags as t } from "@codemirror/highlight"
+import { Tag, tags as t } from "@codemirror/highlight";
 
 export const tabTags = {
   fret: Tag.define(t.integer),
