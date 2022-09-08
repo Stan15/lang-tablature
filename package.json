@@ -11,10 +11,10 @@
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.2",
-    "rollup-plugin-dts": "^4.2.1"
+    "rollup-plugin-dts": "^4.2.1",
+    "tslib": "^2.4.0"
   },
   "dependencies": {
-    "@codemirror/highlight": "^0.19.8",
     "@codemirror/language": "^6.2.1",
     "parser-tablature": "github:tab-edit/parser-tablature",
     "tab-ast": "github:tab-edit/tab-ast"
