@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@codemirror/highlight": "^0.19.8",
-    "@codemirror/language": "^0.20.0",
+    "@codemirror/language": "^6.2.1",
     "parser-tablature": "github:tab-edit/parser-tablature",
     "tab-ast": "github:tab-edit/tab-ast"
   }
